@@ -1,27 +1,19 @@
-import { useState } from 'react'
-import './App.css'
-
+import './App.css';
+import { Value } from "./components/counter/counter";
+import { Filter } from "./components/filter/filter";
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          add 1 to count
-        </button>
-        <button onClick={() => setCount((count) => count - 1)}>
-          remove 1 from count
-        </button>
-        <button onClick={() => setCount((count) => count = 0)}>
-          reset the count to 0
-        </button>
-      </div>
-      <div className="counter">
-        count is {count}
-      </div>
-    </>
+
+    <h1>test</h1>
+  <Value></Value>
+
+  <Filter></Filter>
+  </>
+  
   );
+  
 }
 
 export default App
