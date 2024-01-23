@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 export const Filter = () => {
-
-
   const [answer, setAnswer] = useState(``);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(`typing`);
@@ -11,39 +9,35 @@ export const Filter = () => {
     return <h1>det ble riktig!</h1>;
   }
 
-  async function handlesubmit(e){
-  e.preventDefault();
+  async function handlesubmit(e) {
+    e.preventDefault();
     setStatus(`submitting`);
-    try{
+    try {
       await submitForm(answer);
       setStatus(`success`);
-    } catch (err){
+    } catch (err) {
       setStatus(`typing`);
       setError(err);
     }
   }
-  function handleTextareaChange(e){
-    setAnswer(e.target.value)
+  function handleTextareaChange(e) {
+    setAnswer(e.target.value);
   }
   return (
     <>
       <h2>Quiz</h2>
       <p>what is the capital of Norway</p>
       <form onSubmit={handlesubmit}>
-        <textarea 
-        value={answer}
-        onChange={handleTextareaChange}
-        disabled={status === `submitting`}
+        <textarea
+          value={answer}
+          onChange={handleTextareaChange}
+          disabled={status === `submitting`}
         />
         <br />
-        <button disabled = {
-            answer.length === 0 || status === `submitting`
-        }>
+        <button disabled={answer.length === 0 || status === `submitting`}>
           submit
         </button>
-        {error !== null &&
-        <p> {error.message}</p>
-        }
+        {error !== null && <p> {error.message}</p>}
       </form>
     </>
   );
@@ -52,8 +46,7 @@ export const Filter = () => {
 function submitForm(answer) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let shouldError =
-        answer.toLowerCase() !== "oslo";
+      let shouldError = answer.toLowerCase() !== "oslo";
       if (shouldError) {
         reject(new Error("det ble feil, give up!"));
       } else {
