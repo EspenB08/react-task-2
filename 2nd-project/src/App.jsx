@@ -11,7 +11,7 @@ function App() {
   <Value></Value>
 
   <Filter></Filter>
-  {/* <div className="test">
+  <div className="test">
 
   <input list="names"></input>
    <datalist id='names'>
@@ -19,9 +19,7 @@ function App() {
     <option value="test"></option>
     </datalist>
   </div>
-  <ul>test</ul>
-  <li>test</li>
-   */}
+  
   </>
   
   );
